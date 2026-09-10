@@ -1,0 +1,351 @@
+/* =========================================================
+   Bibliothèque — feuille de style
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --papier: #F7F3EA;
+    --papier-carte: #FFFDF8;
+    --vert: #2C4A3E;
+    --vert-clair: #4A7A63;
+    --texte: #2B2620;
+    --texte-doux: #6B6255;
+    --dore: #B8862F;
+    --rouge: #A33B2E;
+    --bordure: #E3DCC9;
+    --rayon: 3px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--papier);
+    color: var(--texte);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+h1, h2, h3 {
+    font-family: 'Source Serif 4', serif;
+    color: var(--vert);
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.1rem;
+    margin: 0 0 1.2rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--bordure);
+}
+
+a {
+    color: var(--vert);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--vert-clair);
+    text-decoration: underline;
+}
+
+/* ---------- Mise en page générale ---------- */
+
+body > *:not(nav):not(hr) {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--bordure);
+    margin: 2rem 0;
+}
+
+footer {
+    text-align: center;
+    color: var(--texte-doux);
+    font-size: 0.85rem;
+    padding: 1.5rem;
+}
+
+/* ---------- Navigation ---------- */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    background: var(--vert);
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav a, nav span {
+    color: #EFE9D8;
+    font-size: 0.92rem;
+}
+
+nav a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.85;
+}
+
+nav span {
+    margin-left: auto;
+    color: #C9BE9E;
+}
+
+nav a[href*="notifications"] {
+    position: relative;
+}
+
+nav a[href*="notifications"] span {
+    margin-left: 0.3rem;
+    display: inline-block;
+    font-size: 0.72rem;
+    line-height: 1;
+    padding: 3px 6px !important;
+    color: #fff !important;
+}
+
+/* ---------- Formulaires ---------- */
+
+form {
+    background: var(--papier-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon);
+    padding: 1.4rem;
+    margin-bottom: 1.5rem;
+    max-width: 480px;
+}
+
+form[method="GET"] {
+    max-width: none;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    background: transparent;
+    border: none;
+    padding: 0 0 1.5rem;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--texte-doux);
+    margin: 0.9rem 0 0.3rem;
+}
+
+form[method="GET"] label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon);
+    background: #fff;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--texte);
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--vert-clair);
+    outline-offset: 1px;
+    border-color: var(--vert-clair);
+}
+
+form[method="GET"] input[type="text"] {
+    width: auto;
+    min-width: 220px;
+}
+
+form[method="GET"] select {
+    width: auto;
+}
+
+button, input[type="submit"] {
+    background: var(--vert);
+    color: #fff;
+    border: none;
+    border-radius: var(--rayon);
+    padding: 0.6rem 1.1rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 0.9rem;
+}
+
+form[method="GET"] button {
+    margin-top: 0;
+}
+
+button:hover {
+    background: var(--vert-clair);
+}
+
+table button {
+    margin-top: 0;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.82rem;
+}
+
+/* ---------- Messages ---------- */
+
+.message, .succes {
+    background: #EEF3ED;
+    border-left: 3px solid var(--vert-clair);
+    color: var(--vert);
+    padding: 0.8rem 1rem;
+    border-radius: var(--rayon);
+    margin-bottom: 1.2rem;
+}
+
+.erreur {
+    background: #FBEDEA;
+    border-left: 3px solid var(--rouge);
+    color: var(--rouge);
+    padding: 0.8rem 1rem;
+    border-radius: var(--rayon);
+    margin-bottom: 1.2rem;
+}
+
+.disponible {
+    color: var(--dore);
+    font-weight: 500;
+}
+
+.indisponible {
+    color: var(--texte-doux);
+    font-weight: 500;
+}
+
+/* ---------- Catalogue : grille de livres ---------- */
+
+.grille-livres {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.2rem;
+    padding-bottom: 2rem;
+}
+
+.carte-livre {
+    background: var(--papier-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon);
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.carte-livre h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.05rem;
+    margin: 0 0 0.5rem;
+    color: var(--texte);
+}
+
+.carte-livre p {
+    font-size: 0.86rem;
+    color: var(--texte-doux);
+    margin: 0.2rem 0;
+}
+
+.carte-livre a {
+    margin-top: auto;
+    padding-top: 0.7rem;
+}
+
+.carte-livre button {
+    width: 100%;
+}
+
+/* ---------- Tableaux (mon compte, admin) ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--papier-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid var(--bordure);
+}
+
+th {
+    background: #EFEAD9;
+    color: var(--vert);
+    font-weight: 600;
+    font-size: 0.82rem;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* ---------- Notifications ---------- */
+
+div[style*="border: 1px solid #ccc"] {
+    border-color: var(--bordure) !important;
+    border-radius: var(--rayon);
+    font-size: 0.9rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+    nav {
+        gap: 0.8rem;
+    }
+    nav span {
+        margin-left: 0;
+        width: 100%;
+        order: -1;
+    }
+    form[method="GET"] {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
